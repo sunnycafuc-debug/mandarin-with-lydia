@@ -168,7 +168,7 @@ export const zh: Dict = {
           title: '免费中文水平测试（建议优先完成）',
           desc: '综合中文水平摸底，检测声调、听力、词汇、语法，大约5分钟。',
           url: 'https://willychina.com/mandarin-level-test',
-          tip: '提示：测试结束后，请对结果页面截图。页面一旦关闭，结果将无法保存。',
+          tip: '提示：做完请截图，关闭页面结果无法保存。',
         },
         {
           title: '汉字识字量测试',

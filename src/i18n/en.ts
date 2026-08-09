@@ -183,7 +183,7 @@ export const en = {
           title: 'Free Mandarin Placement Test (Recommended)',
           desc: 'Assess tone, listening, vocabulary and grammar. About 5 minutes.',
           url: 'https://willychina.com/mandarin-level-test',
-          tip: 'Tip: Please screenshot your result page after finishing. The result cannot be recovered once the tab is closed.',
+          tip: 'Tip: Screenshot your result when done — results cannot be saved once the page closes.',
         },
         {
           title: 'Chinese Character Recognition Test',
