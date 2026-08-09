@@ -140,16 +140,6 @@ export const en = {
         name: 'Sofia',
         role: 'Business professional · Spain',
       },
-      {
-        quote: 'Three months in, I can order food, chat with taxi drivers and make friends — all in Mandarin.',
-        name: 'James',
-        role: 'Adult learner · Australia',
-      },
-      {
-        quote: 'Lydia meets my teenage daughter exactly where she is — patient, fun, and never condescending.',
-        name: 'Priya',
-        role: 'Parent of a teen learner · Singapore',
-      },
     ],
   },
   contact: {

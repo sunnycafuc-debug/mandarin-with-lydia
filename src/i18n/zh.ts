@@ -126,16 +126,6 @@ export const zh: Dict = {
         name: 'Sofia',
         role: '商务人士 · 西班牙',
       },
-      {
-        quote: '学了三个月，我已经能用中文点餐、和司机聊天、交到新朋友了。',
-        name: 'James',
-        role: '成人学员 · 澳大利亚',
-      },
-      {
-        quote: 'Lydia 很懂我女儿这个年纪的孩子——耐心、有趣，从不居高临下。',
-        name: 'Priya',
-        role: '青少年学员家长 · 新加坡',
-      },
     ],
   },
   contact: {
