@@ -554,7 +554,7 @@ html[data-lang='zh'] .lang-btn-zh {
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 900px) {
   .t-slide {
     width: 33.3333%;
   }
