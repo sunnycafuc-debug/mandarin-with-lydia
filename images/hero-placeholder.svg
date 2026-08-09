@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 520" role="img" aria-label="Placeholder portrait for the hero section">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7E8DE"/>
+      <stop offset="1" stop-color="#EFD3C1"/>
+    </linearGradient>
+    <linearGradient id="sk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#BE5331"/>
+      <stop offset="1" stop-color="#A34422"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="520" rx="36" fill="url(#bg)"/>
+  <text x="84" y="98" font-family="Georgia, 'Songti SC', serif" font-size="40" fill="#BE5331" opacity="0.35">学</text>
+  <text x="368" y="150" font-family="Georgia, 'Songti SC', serif" font-size="30" fill="#A34422" opacity="0.28">说</text>
+  <text x="52" y="440" font-family="Georgia, 'Songti SC', serif" font-size="34" fill="#A34422" opacity="0.22">练</text>
+  <circle cx="240" cy="205" r="92" fill="#FDFAF5"/>
+  <circle cx="240" cy="205" r="78" fill="#F6E4DA"/>
+  <path d="M118 520c6-80 56-120 122-120s116 40 122 120Z" fill="url(#sk)"/>
+  <text x="240" y="452" font-family="Georgia, 'Songti SC', serif" font-size="30" fill="#FDFAF5" text-anchor="middle">语</text>
+</svg>
