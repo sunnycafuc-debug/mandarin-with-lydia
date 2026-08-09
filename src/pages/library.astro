@@ -33,22 +33,24 @@ const planned = en.library.planned.map((item, i) => ({
         <div class="self-test-grid">
           {
             en.library.selfTest.items.map((item, i) => (
-              <article class="self-test-card">
-                <h3>
-                  <L10n en={item.title} zh={zh.library.selfTest.items[i].title} />
-                </h3>
-                <p class="self-test-desc">
-                  <L10n en={item.desc} zh={zh.library.selfTest.items[i].desc} />
-                </p>
-                <a class="self-test-link" href={item.url} target="_blank" rel="noopener noreferrer">
-                  {item.url} <span aria-hidden="true">↗</span>
-                </a>
+              <div class="self-test-col">
+                <article class="self-test-card">
+                  <h3>
+                    <L10n en={item.title} zh={zh.library.selfTest.items[i].title} />
+                  </h3>
+                  <p class="self-test-desc">
+                    <L10n en={item.desc} zh={zh.library.selfTest.items[i].desc} />
+                  </p>
+                  <a class="self-test-link" href={item.url} target="_blank" rel="noopener noreferrer">
+                    {item.url}
+                  </a>
+                </article>
                 {item.tip && (
                   <p class="self-test-tip">
                     <L10n en={item.tip} zh={zh.library.selfTest.items[i].tip} />
                   </p>
                 )}
-              </article>
+              </div>
             ))
           }
         </div>

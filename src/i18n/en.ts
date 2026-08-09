@@ -182,13 +182,13 @@ export const en = {
         {
           title: 'Free Mandarin Placement Test (Recommended)',
           desc: 'Assess tone, listening, vocabulary and grammar. About 5 minutes.',
-          url: 'https://willychina.com/mandarin-level-test/',
-          tip: '💡 Tip: Please screenshot your result page after finishing. The result cannot be recovered once the tab is closed.',
+          url: 'https://willychina.com/mandarin-level-test',
+          tip: 'Tip: Please screenshot your result page after finishing. The result cannot be recovered once the tab is closed.',
         },
         {
           title: 'Chinese Character Recognition Test',
           desc: 'For overseas Chinese-heritage teens, estimate your vocabulary of Chinese characters.',
-          url: 'https://www.hskcharcount.online/',
+          url: 'https://www.hskcharcount.online',
           tip: '',
         },
       ],
