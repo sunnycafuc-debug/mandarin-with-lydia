@@ -1,0 +1,42 @@
+---
+import { en } from '../i18n/en';
+import { zh } from '../i18n/zh';
+import L10n from './L10n.astro';
+
+const items = en.testimonials.items.map((item, i) => ({
+  ...item,
+  zh: zh.testimonials.items[i],
+}));
+---
+
+<section class="section section-alt" id="testimonials">
+  <div class="container">
+    <p class="eyebrow">
+      <L10n en={en.testimonials.eyebrow} zh={zh.testimonials.eyebrow} />
+    </p>
+    <h2 class="section-title">
+      <L10n en={en.testimonials.title} zh={zh.testimonials.title} />
+    </h2>
+    <p class="section-subtitle">
+      <L10n en={en.testimonials.subtitle} zh={zh.testimonials.subtitle} />
+    </p>
+    <div class="testimonials-grid">
+      {
+        items.map((item) => (
+          <figure class="testimonial-card">
+            <p class="stars" aria-hidden="true">★★★★★</p>
+            <blockquote>
+              <L10n en={item.quote} zh={item.zh.quote} />
+            </blockquote>
+            <figcaption>
+              <strong>
+                <L10n en={item.name} zh={item.zh.name} />
+              </strong>
+              <L10n en={item.role} zh={item.zh.role} />
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

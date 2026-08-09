@@ -1,0 +1,57 @@
+---
+import { en } from '../i18n/en';
+import { zh } from '../i18n/zh';
+import L10n from '../components/L10n.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const planned = en.library.planned.map((item, i) => ({
+  ...item,
+  zh: zh.library.planned[i],
+}));
+---
+
+<BaseLayout
+  title={`${en.library.title} | ${en.meta.title}`}
+  description={en.library.body}
+>
+  <section class="library-hero">
+    <div class="container">
+      <p class="eyebrow">
+        <L10n en={en.library.eyebrow} zh={zh.library.eyebrow} />
+      </p>
+      <h1 class="library-title">
+        <L10n en={en.library.title} zh={zh.library.title} />
+      </h1>
+      <p class="library-body">
+        <L10n en={en.library.body} zh={zh.library.body} />
+      </p>
+      <div class="library-cta">
+        <a class="btn btn-primary" href="/#contact">
+          <L10n en={en.library.cta} zh={zh.library.cta} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="library-grid">
+        {
+          planned.map((item) => (
+            <article class="library-card">
+              <span class="coming-tag">
+                <L10n en={en.library.badge} zh={zh.library.badge} />
+              </span>
+              <h3>
+                <L10n en={item.title} zh={item.zh.title} />
+              </h3>
+              <p>
+                <L10n en={item.desc} zh={item.zh.desc} />
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

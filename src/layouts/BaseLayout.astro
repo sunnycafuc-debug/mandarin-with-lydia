@@ -1,0 +1,86 @@
+---
+import { site } from '../config';
+import { en } from '../i18n/en';
+import { zh } from '../i18n/zh';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogType?: string;
+}
+
+const { title, description, ogType = 'website' } = Astro.props;
+const pageTitle = title ?? `${site.brand} — Online Mandarin Teacher`;
+const pageDescription = description ?? en.meta.description;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.brand} />
+    <meta property="og:image" content={new URL('/images/og-placeholder.png', site.url).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      (function () {
+        function getLang() {
+          var m = document.cookie.match(/(?:^|; )lang=([^;]+)/);
+          if (m && m[1] === 'zh') return 'zh';
+          var n = (navigator.language || 'en').toLowerCase();
+          return n.indexOf('zh') === 0 ? 'zh' : 'en';
+        }
+        function applyLang(lang, persist) {
+          document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+          document.documentElement.setAttribute('data-lang', lang);
+          if (persist) {
+            document.cookie = 'lang=' + lang + '; path=/; max-age=31536000; SameSite=Lax';
+          }
+          var els = document.querySelectorAll('[data-zh-placeholder]');
+          for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            el.setAttribute(
+              'placeholder',
+              lang === 'zh' ? el.getAttribute('data-zh-placeholder') : el.getAttribute('data-en-placeholder')
+            );
+          }
+        }
+        applyLang(getLang(), false);
+        document.addEventListener('DOMContentLoaded', function () {
+          applyLang(getLang(), false);
+          var buttons = document.querySelectorAll('[data-lang-btn]');
+          for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', function () {
+              applyLang(this.getAttribute('data-lang-btn'), true);
+            });
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

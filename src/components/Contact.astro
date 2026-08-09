@@ -1,0 +1,145 @@
+---
+import { site } from '../config';
+import { en } from '../i18n/en';
+import { zh } from '../i18n/zh';
+import L10n from './L10n.astro';
+
+const options = [
+  { value: 'any', label: en.contact.form.courseOptions.any, zh: zh.contact.form.courseOptions.any },
+  { value: 'kids', label: en.contact.form.courseOptions.kids, zh: zh.contact.form.courseOptions.kids },
+  { value: 'adult', label: en.contact.form.courseOptions.adult, zh: zh.contact.form.courseOptions.adult },
+  { value: 'hsk', label: en.contact.form.courseOptions.hsk, zh: zh.contact.form.courseOptions.hsk },
+];
+---
+
+<section class="section" id="contact">
+  <div class="container contact-inner">
+    <div class="contact-info">
+      <p class="eyebrow">
+        <L10n en={en.contact.eyebrow} zh={zh.contact.eyebrow} />
+      </p>
+      <h2 class="section-title">
+        <L10n en={en.contact.title} zh={zh.contact.title} />
+      </h2>
+      <p>
+        <L10n en={en.contact.subtitle} zh={zh.contact.subtitle} />
+      </p>
+      <a class="contact-email" href={`mailto:${site.email}`}>
+        <span aria-hidden="true">✉</span>
+        {site.email}
+      </a>
+      <p class="eyebrow" style="margin-top: 1.6rem">
+        <L10n en={en.contact.emailLabel} zh={zh.contact.emailLabel} />
+      </p>
+      <div class="contact-socials">
+        <a href={site.socials.instagram} rel="nofollow">Instagram</a>
+        <a href={site.socials.youtube} rel="nofollow">YouTube</a>
+        <a href={site.socials.linkedin} rel="nofollow">LinkedIn</a>
+      </div>
+    </div>
+
+    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-contact-form>
+      <input type="hidden" name="form-name" value="contact" />
+      <p class="honeypot" aria-hidden="true">
+        <label>
+          Don't fill this out
+          <input name="bot-field" tabindex="-1" autocomplete="off" />
+        </label>
+      </p>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="contact-name">
+            <L10n en={en.contact.form.name} zh={zh.contact.form.name} />
+          </label>
+          <input
+            id="contact-name"
+            name="name"
+            type="text"
+            required
+            autocomplete="name"
+            placeholder={en.contact.form.name}
+            data-en-placeholder={en.contact.form.name}
+            data-zh-placeholder={zh.contact.form.name}
+          />
+        </div>
+        <div class="form-field">
+          <label for="contact-email">
+            <L10n en={en.contact.form.email} zh={zh.contact.form.email} />
+          </label>
+          <input
+            id="contact-email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            placeholder="name@example.com"
+          />
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="contact-course">
+          <L10n en={en.contact.form.course} zh={zh.contact.form.course} />
+        </label>
+        <select id="contact-course" name="course">
+          {options.map((option) => (
+            <option value={option.value}>{option.label} · {option.zh}</option>
+          ))}
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="contact-message">
+          <L10n en={en.contact.form.message} zh={zh.contact.form.message} />
+        </label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows="4"
+          placeholder={en.contact.form.message}
+          data-en-placeholder={en.contact.form.message}
+          data-zh-placeholder={zh.contact.form.message}
+        ></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">
+        <L10n en={en.contact.form.submit} zh={zh.contact.form.submit} />
+      </button>
+      <p class="form-note">
+        <L10n en={en.contact.form.note} zh={zh.contact.form.note} />
+      </p>
+      <p class="form-success" data-form-success hidden>
+        <L10n en={en.contact.form.success} zh={zh.contact.form.success} />
+      </p>
+      <p class="form-error" data-form-error hidden>
+        <L10n en={en.contact.form.error} zh={zh.contact.form.error} />
+      </p>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector('[data-contact-form]');
+  const success = document.querySelector('[data-form-success]');
+  const error = document.querySelector('[data-form-error]');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button[type="submit"]');
+    button?.setAttribute('disabled', '');
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (response.ok) {
+        form.hidden = true;
+        success?.removeAttribute('hidden');
+      } else {
+        error?.removeAttribute('hidden');
+        button?.removeAttribute('disabled');
+      }
+    } catch {
+      error?.removeAttribute('hidden');
+      button?.removeAttribute('disabled');
+    }
+  });
+</script>

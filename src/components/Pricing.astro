@@ -1,0 +1,57 @@
+---
+import { en } from '../i18n/en';
+import { zh } from '../i18n/zh';
+import L10n from './L10n.astro';
+
+const tiers = en.pricing.tiers.map((tier, i) => ({
+  ...tier,
+  zh: zh.pricing.tiers[i],
+}));
+---
+
+<section class="section" id="pricing">
+  <div class="container">
+    <p class="eyebrow">
+      <L10n en={en.pricing.eyebrow} zh={zh.pricing.eyebrow} />
+    </p>
+    <h2 class="section-title">
+      <L10n en={en.pricing.title} zh={zh.pricing.title} />
+    </h2>
+    <p class="section-subtitle">
+      <L10n en={en.pricing.subtitle} zh={zh.pricing.subtitle} />
+    </p>
+    <div class="pricing-grid">
+      {
+        tiers.map((tier) => (
+          <article class:list={['price-card', { popular: tier.popular }]}>
+            {tier.popular && (
+              <span class="popular-badge">
+                <L10n en={en.pricing.popular} zh={zh.pricing.popular} />
+              </span>
+            )}
+            <h3 class="price-name">
+              <L10n en={tier.name} zh={tier.zh.name} />
+            </h3>
+            <p class="price-value">{tier.price}</p>
+            <p class="price-unit">
+              <L10n en={tier.unit} zh={tier.zh.unit} />
+            </p>
+            <ul class="price-features">
+              {tier.features.map((feature, j) => (
+                <li>
+                  <L10n en={feature} zh={tier.zh.features[j]} />
+                </li>
+              ))}
+            </ul>
+            <a class="btn btn-primary" href="#contact">
+              <L10n en={en.pricing.cta} zh={zh.pricing.cta} />
+            </a>
+          </article>
+        ))
+      }
+    </div>
+    <p class="price-note">
+      <L10n en={en.pricing.note} zh={zh.pricing.note} />
+    </p>
+  </div>
+</section>

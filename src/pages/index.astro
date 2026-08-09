@@ -1,0 +1,19 @@
+---
+import { en } from '../i18n/en';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Courses from '../components/Courses.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<BaseLayout title={en.meta.title} description={en.meta.description}>
+  <Hero />
+  <About />
+  <Courses />
+  <Pricing />
+  <Testimonials />
+  <Contact />
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+import { en } from '../i18n/en';
+import { zh } from '../i18n/zh';
+import L10n from './L10n.astro';
+
+const cards = en.courses.cards.map((card, i) => ({
+  ...card,
+  zh: zh.courses.cards[i],
+}));
+---
+
+<section class="section section-alt" id="courses">
+  <div class="container">
+    <p class="eyebrow">
+      <L10n en={en.courses.eyebrow} zh={zh.courses.eyebrow} />
+    </p>
+    <h2 class="section-title">
+      <L10n en={en.courses.title} zh={zh.courses.title} />
+    </h2>
+    <p class="section-subtitle">
+      <L10n en={en.courses.subtitle} zh={zh.courses.subtitle} />
+    </p>
+    <div class="courses-grid">
+      {
+        cards.map((card) => (
+          <article class="course-card">
+            <span class="course-tag">
+              <L10n en={card.tag} zh={card.zh.tag} />
+            </span>
+            <h3>
+              <L10n en={card.title} zh={card.zh.title} />
+            </h3>
+            <p>
+              <L10n en={card.desc} zh={card.zh.desc} />
+            </p>
+            <ul class="course-points">
+              {card.points.map((point, j) => (
+                <li>
+                  <L10n en={point} zh={card.zh.points[j]} />
+                </li>
+              ))}
+            </ul>
+            <a class="btn btn-ghost" href="#contact">
+              <L10n en={en.courses.cta} zh={zh.courses.cta} />
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

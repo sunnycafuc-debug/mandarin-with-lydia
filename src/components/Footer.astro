@@ -1,0 +1,47 @@
+---
+import { site } from '../config';
+import { en } from '../i18n/en';
+import { zh } from '../i18n/zh';
+import L10n from './L10n.astro';
+
+const links = [
+  { href: '/#about', en: en.nav.about, zh: zh.nav.about },
+  { href: '/#courses', en: en.nav.courses, zh: zh.nav.courses },
+  { href: '/#pricing', en: en.nav.pricing, zh: zh.nav.pricing },
+  { href: '/#testimonials', en: en.nav.testimonials, zh: zh.nav.testimonials },
+  { href: '/#contact', en: en.nav.contact, zh: zh.nav.contact },
+  { href: '/library', en: en.nav.library, zh: zh.nav.library },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true">语</span>
+          <span class="brand-name">{site.brand}</span>
+        </a>
+        <p>
+          <L10n en={en.footer.tagline} zh={zh.footer.tagline} />
+        </p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        {
+          links.map((link) => (
+            <a href={link.href}>
+              <L10n en={link.en} zh={link.zh} />
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© {year} {site.brand}.</span>
+      <span>
+        <L10n en={en.footer.rights} zh={zh.footer.rights} />
+      </span>
+    </div>
+  </div>
+</footer>

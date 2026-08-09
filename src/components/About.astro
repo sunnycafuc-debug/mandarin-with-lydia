@@ -1,0 +1,37 @@
+---
+import { en } from '../i18n/en';
+import { zh } from '../i18n/zh';
+import L10n from './L10n.astro';
+---
+
+<section class="section" id="about">
+  <div class="container about-inner">
+    <div class="about-media">
+      <img src="/images/about-placeholder.svg" alt="" width="480" height="560" loading="lazy" />
+      <p class="about-caption">
+        <L10n en={en.about.photoCaption} zh={zh.about.photoCaption} />
+      </p>
+    </div>
+    <div class="about-body">
+      <p class="eyebrow">
+        <L10n en={en.about.eyebrow} zh={zh.about.eyebrow} />
+      </p>
+      <h2 class="section-title">
+        <L10n en={en.about.title} zh={zh.about.title} />
+      </h2>
+      <p>
+        <L10n en={en.about.p1} zh={zh.about.p1} />
+      </p>
+      <p>
+        <L10n en={en.about.p2} zh={zh.about.p2} />
+      </p>
+      <ul class="about-points">
+        {en.about.points.map((point, i) => (
+          <li>
+            <L10n en={point} zh={zh.about.points[i]} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

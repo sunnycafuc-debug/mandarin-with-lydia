@@ -1,0 +1,35 @@
+---
+import { en } from '../i18n/en';
+import { zh } from '../i18n/zh';
+import L10n from './L10n.astro';
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">
+        <L10n en={en.hero.eyebrow} zh={zh.hero.eyebrow} />
+      </p>
+      <h1 class="hero-title">
+        <L10n en={en.hero.title} zh={zh.hero.title} />
+      </h1>
+      <p class="hero-subtitle">
+        <L10n en={en.hero.subtitle} zh={zh.hero.subtitle} />
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">
+          <L10n en={en.hero.ctaPrimary} zh={zh.hero.ctaPrimary} />
+        </a>
+        <a class="btn btn-ghost" href="#courses">
+          <L10n en={en.hero.ctaSecondary} zh={zh.hero.ctaSecondary} />
+        </a>
+      </div>
+      <p class="hero-badge">
+        <L10n en={en.hero.badge} zh={zh.hero.badge} />
+      </p>
+    </div>
+    <div class="hero-media">
+      <img src="/images/hero-placeholder.svg" alt="" width="480" height="520" loading="eager" />
+    </div>
+  </div>
+</section>

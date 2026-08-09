@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 560" role="img" aria-label="Placeholder portrait for the about section">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F3E7DC"/>
+      <stop offset="1" stop-color="#EAD3C2"/>
+    </linearGradient>
+    <linearGradient id="sk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#BE5331"/>
+      <stop offset="1" stop-color="#A34422"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="560" rx="36" fill="url(#bg)"/>
+  <text x="380" y="96" font-family="Georgia, 'Songti SC', serif" font-size="36" fill="#BE5331" opacity="0.32">师</text>
+  <text x="66" y="150" font-family="Georgia, 'Songti SC', serif" font-size="28" fill="#A34422" opacity="0.25">友</text>
+  <circle cx="240" cy="212" r="92" fill="#FDFAF5"/>
+  <circle cx="240" cy="212" r="78" fill="#F6E4DA"/>
+  <path d="M118 560c6-84 56-126 122-126s116 42 122 126Z" fill="url(#sk)"/>
+  <text x="240" y="492" font-family="Georgia, 'Songti SC', serif" font-size="30" fill="#FDFAF5" text-anchor="middle">语</text>
+</svg>

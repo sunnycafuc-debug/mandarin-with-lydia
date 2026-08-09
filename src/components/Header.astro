@@ -1,0 +1,57 @@
+---
+import { site } from '../config';
+import { en } from '../i18n/en';
+import { zh } from '../i18n/zh';
+import L10n from './L10n.astro';
+
+const links = [
+  { href: '/#about', en: en.nav.about, zh: zh.nav.about },
+  { href: '/#courses', en: en.nav.courses, zh: zh.nav.courses },
+  { href: '/#pricing', en: en.nav.pricing, zh: zh.nav.pricing },
+  { href: '/#testimonials', en: en.nav.testimonials, zh: zh.nav.testimonials },
+  { href: '/#contact', en: en.nav.contact, zh: zh.nav.contact },
+  { href: '/library', en: en.nav.library, zh: zh.nav.library },
+];
+---
+
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label={site.brand}>
+      <span class="brand-mark" aria-hidden="true">语</span>
+      <span class="brand-name">{site.brand}</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      {
+        links.map((link) => (
+          <a href={link.href}>
+            <L10n en={link.en} zh={link.zh} />
+          </a>
+        ))
+      }
+    </nav>
+    <div class="header-actions">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" class="lang-btn lang-btn-en" data-lang-btn="en" aria-label="English">EN</button>
+        <span class="lang-divider" aria-hidden="true">/</span>
+        <button type="button" class="lang-btn lang-btn-zh" data-lang-btn="zh" aria-label="中文">中文</button>
+      </div>
+      <button class="nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('[data-nav-toggle]');
+  const header = document.querySelector('[data-header]');
+  toggle?.addEventListener('click', () => {
+    const open = header?.classList.toggle('nav-open') ?? false;
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  document.querySelectorAll('.site-nav a').forEach((a) =>
+    a.addEventListener('click', () => header?.classList.remove('nav-open'))
+  );
+</script>
