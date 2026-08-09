@@ -28,15 +28,21 @@ const trackItems = [...items, ...items];
             trackItems.map((item, i) => (
               <div class="t-slide">
                 <figure class="testimonial-card" aria-hidden={String(i >= items.length)}>
+                  <span class="t-mark" aria-hidden="true">“</span>
                   <p class="stars" aria-hidden="true">★★★★★</p>
                   <blockquote>
                     <L10n en={item.quote} zh={item.zh.quote} />
                   </blockquote>
                   <figcaption>
-                    <strong>
-                      <L10n en={item.name} zh={item.zh.name} />
-                    </strong>
-                    <L10n en={item.role} zh={item.zh.role} />
+                    <span class="t-avatar" aria-hidden="true">{item.name.charAt(0)}</span>
+                    <span class="t-author">
+                      <strong>
+                        <L10n en={item.name} zh={item.zh.name} />
+                      </strong>
+                      <span class="t-role">
+                        <L10n en={item.role} zh={item.zh.role} />
+                      </span>
+                    </span>
                   </figcaption>
                 </figure>
               </div>
