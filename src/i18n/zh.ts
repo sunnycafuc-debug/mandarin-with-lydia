@@ -162,7 +162,7 @@ export const zh: Dict = {
     body: '免费练习纸、词汇表、HSK 指南和学习笔记正在准备中。敬请期待——或者先来打个招呼，第一批资源上线时 Lydia 会告诉你。',
     cta: '联系我',
     selfTest: {
-      title: '🧪 免费中文自测工具',
+      title: '免费中文自测工具',
       items: [
         {
           title: '免费中文水平测试（建议优先完成）',

@@ -177,7 +177,7 @@ export const en = {
     body: 'Free worksheets, vocabulary lists, HSK guides and lesson notes are on the way. Check back soon — or say hello and Lydia will let you know when the first resources are ready.',
     cta: 'Say hello',
     selfTest: {
-      title: '🧪 Free Self-Assessment Tools',
+      title: 'Free Self-Assessment Tools',
       items: [
         {
           title: 'Free Mandarin Placement Test (Recommended)',
