@@ -1,4 +1,4 @@
-# Mandarin With Lydia
+# Lydia Mandarin
 
 Lydia 的中文教师个人独立站：现代简约、中英双语（Cookie 记忆语言偏好）、招生导向的单页滚动网站，外加一个「即将上线」的资源库页。
 
@@ -50,9 +50,9 @@ npm run preview    # 本地预览构建产物
 - 线上地址：https://sunnycafuc-debug.github.io/mandarin-with-lydia/ （GitHub Pages，`gh-pages` 分支自动部署）
 - 每次要更新线上内容：`npm run build` 后把 `dist/` 提交到 `gh-pages` 分支（或配置 GitHub Actions 自动构建）。
 - **注意**：GitHub Pages 环境下联系表单不可用（Netlify Forms 专属功能），表单会提示改用邮箱；上线正式版时请部署到 Netlify 并激活 Forms。
-- 后续计划：购买 `mandarinwithlydia.com` → 部署到 Netlify（表单 + 自动部署 + 自定义域名），DNS 解析时把 `mandarinwithlydia.netlify.app` 或 GitHub Pages 的 CNAME 指过去即可。
+- 后续计划：购买 `lydiamandarin.com` → 部署到 Netlify（表单 + 自动部署 + 自定义域名），DNS 解析时把 `lydiamandarin.netlify.app` 或 GitHub Pages 的 CNAME 指过去即可。
 
 ## GitHub Pages 子路径说明
 
 当前以 `/mandarin-with-lydia/` 子路径托管在 GitHub Pages（`astro.config.mjs` 中设置了 `base`）。
-若以后部署到根域名（如 Netlify + `mandarinwithlydia.com`），需把 `astro.config.mjs` 里的 `base` 改为 `'/'` 再重新构建。
+若以后部署到根域名（如 Netlify + `lydiamandarin.com`），需把 `astro.config.mjs` 里的 `base` 改为 `'/'` 再重新构建。

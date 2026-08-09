@@ -1,8 +1,8 @@
 export const site = {
-  brand: 'Mandarin With Lydia',
+  brand: 'Lydia Mandarin',
   teacher: 'Lydia',
-  url: 'https://mandarinwithlydia.com',
-  email: 'hello@mandarinwithlydia.com',
+  url: 'https://lydiamandarin.com',
+  email: 'hello@lydiamandarin.com',
   socials: {
     instagram: '#',
     youtube: '#',

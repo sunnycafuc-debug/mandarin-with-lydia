@@ -9,7 +9,7 @@ export const en = {
   },
   hero: {
     eyebrow: 'Online Mandarin Teacher',
-    title: 'Mandarin With Lydia',
+    title: 'Lydia Mandarin',
     subtitle:
       'Personalized online Chinese lessons for kids, adults, HSK prep and business — taught with patience, energy and a plan made just for you.',
     ctaPrimary: 'Book a free consultation',
@@ -140,7 +140,7 @@ export const en = {
       submit: 'Send message',
       note: 'Your details stay private.',
       success: 'Thanks! Your message has been sent — Lydia will get back to you soon.',
-      error: 'Could not send the form here. Please email hello@mandarinwithlydia.com instead.',
+      error: 'Could not send the form here. Please email hello@lydiamandarin.com instead.',
     },
   },
   footer: {
@@ -169,7 +169,7 @@ export const en = {
     ],
   },
   meta: {
-    title: 'Mandarin With Lydia | Online Chinese Lessons for Kids, Adults & HSK',
+    title: 'Lydia Mandarin | Online Chinese Lessons for Kids, Adults & HSK',
     description:
       'Personalized online Mandarin lessons with Lydia — kids & teens, adult conversation, HSK 1–6 prep and business Chinese. Book a free consultation.',
   },

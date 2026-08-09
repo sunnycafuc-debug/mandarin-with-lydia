@@ -11,7 +11,7 @@ export const zh: Dict = {
   },
   hero: {
     eyebrow: '在线中文教师',
-    title: 'Mandarin With Lydia',
+    title: 'Lydia Mandarin',
     subtitle:
       '专为儿童、成人、HSK 备考与商务人士量身定制的在线中文课——耐心、热情，以及一套为你而设的学习计划。',
     ctaPrimary: '预约免费咨询',
@@ -129,7 +129,7 @@ export const zh: Dict = {
       submit: '发送留言',
       note: '你的信息会被保密。',
       success: '谢谢！留言已发送，Lydia 很快会回复你。',
-      error: '表单暂时无法发送，请直接邮件联系 hello@mandarinwithlydia.com。',
+      error: '表单暂时无法发送，请直接邮件联系 hello@lydiamandarin.com。',
     },
   },
   footer: {
@@ -158,7 +158,7 @@ export const zh: Dict = {
     ],
   },
   meta: {
-    title: 'Mandarin With Lydia | 中文教师线上课程 · 少儿 / 成人 / HSK',
+    title: 'Lydia Mandarin | 中文教师线上课程 · 少儿 / 成人 / HSK',
     description:
       '与 Lydia 一起学习普通话——少儿与青少年、成人会话、HSK 1–6 备考及商务中文，一对一在线授课。立即预约免费咨询。',
   },
