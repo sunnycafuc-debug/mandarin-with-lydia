@@ -46,16 +46,6 @@ const planned = en.library.planned.map((item, i) => ({
             ))
           }
         </div>
-        {
-          en.library.selfTest.items[0].tip && (
-            <p class="self-test-tip">
-              <L10n
-                en={en.library.selfTest.items[0].tip}
-                zh={zh.library.selfTest.items[0].tip}
-              />
-            </p>
-          )
-        }
         <p class="self-test-note">
           <L10n en={en.library.selfTest.note} zh={zh.library.selfTest.note} />
         </p>
