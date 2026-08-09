@@ -154,9 +154,10 @@ export const en = {
       course: 'Which course are you interested in?',
       courseOptions: {
         any: 'Not sure yet',
-        kids: 'Kids & Teenagers · 少儿与青少',
+        kids: 'Kids & Teenagers · 少儿与青少年',
         adult: 'Adult General Mandarin · 成人通用普通话',
-        hsk: 'HSK & Business Mandarin · HSK备考与商务中文',
+        hsk: 'HSK Preparation · HSK备考',
+        business: 'Business Mandarin · 商务中文',
       },
       message: 'Tell me about your goals…',
       submit: 'Send message',

@@ -82,7 +82,9 @@ const trackItems = [...items, ...items];
     let startX = null;
 
     function getVisible() {
-      return window.matchMedia('(min-width: 560px)').matches ? 2 : 1;
+      if (window.innerWidth >= 980) return 3;
+      if (window.innerWidth >= 560) return 2;
+      return 1;
     }
     function unit() {
       return 100 / visible;

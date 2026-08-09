@@ -522,7 +522,7 @@ html[data-lang='zh'] .lang-btn-zh {
 
 /* Testimonials */
 .t-carousel {
-  max-width: 920px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
@@ -551,6 +551,12 @@ html[data-lang='zh'] .lang-btn-zh {
 @media (min-width: 560px) {
   .t-slide {
     width: 50%;
+  }
+}
+
+@media (min-width: 980px) {
+  .t-slide {
+    width: 33.3333%;
   }
 }
 

@@ -139,9 +139,10 @@ export const zh: Dict = {
       course: '你对哪门课程感兴趣？',
       courseOptions: {
         any: '还不确定',
-        kids: 'Kids & Teenagers · 少儿与青少',
+        kids: 'Kids & Teenagers · 少儿与青少年',
         adult: 'Adult General Mandarin · 成人通用普通话',
-        hsk: 'HSK & Business Mandarin · HSK备考与商务中文',
+        hsk: 'HSK Preparation · HSK备考',
+        business: 'Business Mandarin · 商务中文',
       },
       message: '说说你的目标…',
       submit: '发送留言',
