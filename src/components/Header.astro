@@ -1,22 +1,23 @@
 ---
 import { site } from '../config';
+import { asset } from '../lib/paths';
 import { en } from '../i18n/en';
 import { zh } from '../i18n/zh';
 import L10n from './L10n.astro';
 
 const links = [
-  { href: '/#about', en: en.nav.about, zh: zh.nav.about },
-  { href: '/#courses', en: en.nav.courses, zh: zh.nav.courses },
-  { href: '/#pricing', en: en.nav.pricing, zh: zh.nav.pricing },
-  { href: '/#testimonials', en: en.nav.testimonials, zh: zh.nav.testimonials },
-  { href: '/#contact', en: en.nav.contact, zh: zh.nav.contact },
-  { href: '/library', en: en.nav.library, zh: zh.nav.library },
+  { href: asset('/#about'), en: en.nav.about, zh: zh.nav.about },
+  { href: asset('/#courses'), en: en.nav.courses, zh: zh.nav.courses },
+  { href: asset('/#pricing'), en: en.nav.pricing, zh: zh.nav.pricing },
+  { href: asset('/#testimonials'), en: en.nav.testimonials, zh: zh.nav.testimonials },
+  { href: asset('/#contact'), en: en.nav.contact, zh: zh.nav.contact },
+  { href: asset('/library'), en: en.nav.library, zh: zh.nav.library },
 ];
 ---
 
 <header class="site-header" data-header>
   <div class="container header-inner">
-    <a class="brand" href="/" aria-label={site.brand}>
+    <a class="brand" href={asset("/")} aria-label={site.brand}>
       <span class="brand-mark" aria-hidden="true">语</span>
       <span class="brand-name">{site.brand}</span>
     </a>

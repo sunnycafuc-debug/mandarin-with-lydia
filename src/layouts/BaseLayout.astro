@@ -1,5 +1,6 @@
 ---
 import { site } from '../config';
+import { asset } from '../lib/paths';
 import { en } from '../i18n/en';
 import { zh } from '../i18n/zh';
 import '../styles/global.css';
@@ -26,7 +27,7 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={asset('/favicon.svg')} />
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />

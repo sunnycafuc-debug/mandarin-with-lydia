@@ -1,4 +1,5 @@
 ---
+import { asset } from '../lib/paths';
 import { en } from '../i18n/en';
 import { zh } from '../i18n/zh';
 import L10n from './L10n.astro';
@@ -29,7 +30,7 @@ import L10n from './L10n.astro';
       </p>
     </div>
     <div class="hero-media">
-      <img src="/images/hero-placeholder.svg" alt="" width="480" height="520" loading="eager" />
+      <img src={asset("/images/hero-placeholder.svg")} alt="" width="480" height="520" loading="eager" />
     </div>
   </div>
 </section>

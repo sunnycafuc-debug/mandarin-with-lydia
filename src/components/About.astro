@@ -1,4 +1,5 @@
 ---
+import { asset } from '../lib/paths';
 import { en } from '../i18n/en';
 import { zh } from '../i18n/zh';
 import L10n from './L10n.astro';
@@ -7,7 +8,7 @@ import L10n from './L10n.astro';
 <section class="section" id="about">
   <div class="container about-inner">
     <div class="about-media">
-      <img src="/images/about-placeholder.svg" alt="" width="480" height="560" loading="lazy" />
+      <img src={asset("/images/about-placeholder.svg")} alt="" width="480" height="560" loading="lazy" />
       <p class="about-caption">
         <L10n en={en.about.photoCaption} zh={zh.about.photoCaption} />
       </p>
