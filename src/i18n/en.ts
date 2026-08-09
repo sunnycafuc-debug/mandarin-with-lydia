@@ -176,6 +176,24 @@ export const en = {
     badge: 'Coming soon',
     body: 'Free worksheets, vocabulary lists, HSK guides and lesson notes are on the way. Check back soon — or say hello and Lydia will let you know when the first resources are ready.',
     cta: 'Say hello',
+    selfTest: {
+      title: '🧪 Free Self-Assessment Tools',
+      items: [
+        {
+          title: 'Free Mandarin Placement Test (Recommended)',
+          desc: 'Assess tone, listening, vocabulary and grammar. About 5 minutes.',
+          url: 'https://willychina.com/mandarin-level-test/',
+          tip: '💡 Tip: Please screenshot your result page after finishing. The result cannot be recovered once the tab is closed.',
+        },
+        {
+          title: 'Chinese Character Recognition Test',
+          desc: 'For overseas Chinese-heritage teens, estimate your vocabulary of Chinese characters.',
+          url: 'https://www.hskcharcount.online/',
+          tip: '',
+        },
+      ],
+      note: 'Note: Online test results are for reference only. Actual proficiency will be confirmed during the trial lesson. If you would like me to analyse your result, please contact me and send your screenshot.',
+    },
     planned: [
       {
         title: 'Printable Worksheets',

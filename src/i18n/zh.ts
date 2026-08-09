@@ -161,6 +161,24 @@ export const zh: Dict = {
     badge: '即将上线',
     body: '免费练习纸、词汇表、HSK 指南和学习笔记正在准备中。敬请期待——或者先来打个招呼，第一批资源上线时 Lydia 会告诉你。',
     cta: '联系我',
+    selfTest: {
+      title: '🧪 免费中文自测工具',
+      items: [
+        {
+          title: 'Free Mandarin Placement Test（建议优先完成）',
+          desc: '综合中文水平摸底，检测声调、听力、词汇、语法，大约5分钟。',
+          url: 'https://willychina.com/mandarin-level-test/',
+          tip: '💡 提示：测试结束后，请对结果页面截图。页面一旦关闭，结果将无法保存。',
+        },
+        {
+          title: 'Chinese Character Recognition Test',
+          desc: '汉字识字量自测，主要适合海外华裔青少年，估算掌握汉字数量。',
+          url: 'https://www.hskcharcount.online/',
+          tip: '',
+        },
+      ],
+      note: '提示：线上测试结果仅作课前参考，正式中文等级需要结合试听课综合评估。如果您希望我帮您分析测试结果，请联系我并发送您的结果截图。',
+    },
     planned: [
       {
         title: '练习纸',

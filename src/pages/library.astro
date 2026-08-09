@@ -26,6 +26,36 @@ const planned = en.library.planned.map((item, i) => ({
       <p class="library-body">
         <L10n en={en.library.body} zh={zh.library.body} />
       </p>
+      <div class="self-test">
+        <h2 class="self-test-title">
+          <L10n en={en.library.selfTest.title} zh={zh.library.selfTest.title} />
+        </h2>
+        <div class="self-test-grid">
+          {
+            en.library.selfTest.items.map((item, i) => (
+              <article class="self-test-card">
+                <h3>
+                  <L10n en={item.title} zh={zh.library.selfTest.items[i].title} />
+                </h3>
+                <p class="self-test-desc">
+                  <L10n en={item.desc} zh={zh.library.selfTest.items[i].desc} />
+                </p>
+                <a class="self-test-link" href={item.url} target="_blank" rel="noopener noreferrer">
+                  {item.url} <span aria-hidden="true">↗</span>
+                </a>
+                {item.tip && (
+                  <p class="self-test-tip">
+                    <L10n en={item.tip} zh={zh.library.selfTest.items[i].tip} />
+                  </p>
+                )}
+              </article>
+            ))
+          }
+        </div>
+        <p class="self-test-note">
+          <L10n en={en.library.selfTest.note} zh={zh.library.selfTest.note} />
+        </p>
+      </div>
       <div class="library-cta">
         <a class="btn btn-primary" href={asset("/#contact")}>
           <L10n en={en.library.cta} zh={zh.library.cta} />
