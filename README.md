@@ -44,3 +44,10 @@ npm run preview    # 本地预览构建产物
 - 日历约课（可嵌入 Calendly）
 - 在线付费（Stripe / PayPal）
 - 独立 `/zh/` URL 与 sitemap，SEO 升级
+
+## 当前线上状态
+
+- 线上地址：https://sunnycafuc-debug.github.io/mandarin-with-lydia/ （GitHub Pages，`gh-pages` 分支自动部署）
+- 每次要更新线上内容：`npm run build` 后把 `dist/` 提交到 `gh-pages` 分支（或配置 GitHub Actions 自动构建）。
+- **注意**：GitHub Pages 环境下联系表单不可用（Netlify Forms 专属功能），表单会提示改用邮箱；上线正式版时请部署到 Netlify 并激活 Forms。
+- 后续计划：购买 `mandarinwithlydia.com` → 部署到 Netlify（表单 + 自动部署 + 自定义域名），DNS 解析时把 `mandarinwithlydia.netlify.app` 或 GitHub Pages 的 CNAME 指过去即可。
