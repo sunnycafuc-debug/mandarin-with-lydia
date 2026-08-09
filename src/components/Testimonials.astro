@@ -20,23 +20,94 @@ const items = en.testimonials.items.map((item, i) => ({
     <p class="section-subtitle">
       <L10n en={en.testimonials.subtitle} zh={zh.testimonials.subtitle} />
     </p>
-    <div class="testimonials-grid">
-      {
-        items.map((item) => (
-          <figure class="testimonial-card">
-            <p class="stars" aria-hidden="true">★★★★★</p>
-            <blockquote>
-              <L10n en={item.quote} zh={item.zh.quote} />
-            </blockquote>
-            <figcaption>
-              <strong>
-                <L10n en={item.name} zh={item.zh.name} />
-              </strong>
-              <L10n en={item.role} zh={item.zh.role} />
-            </figcaption>
-          </figure>
-        ))
-      }
+    <div class="t-carousel" data-carousel>
+      <div class="t-viewport">
+        {
+          items.map((item) => (
+            <figure class="testimonial-card" data-slide>
+              <p class="stars" aria-hidden="true">★★★★★</p>
+              <blockquote>
+                <L10n en={item.quote} zh={item.zh.quote} />
+              </blockquote>
+              <figcaption>
+                <strong>
+                  <L10n en={item.name} zh={item.zh.name} />
+                </strong>
+                <L10n en={item.role} zh={item.zh.role} />
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+      <div class="t-controls">
+        <button class="t-btn" type="button" data-prev aria-label="Previous testimonial">‹</button>
+        <div class="t-dots" role="tablist" aria-label="Testimonials">
+          {
+            items.map((_, i) => (
+              <button class="t-dot" type="button" data-dot={i} aria-label={`Testimonial ${i + 1}`}></button>
+            ))
+          }
+        </div>
+        <button class="t-btn" type="button" data-next aria-label="Next testimonial">›</button>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  const carousel = document.querySelector('[data-carousel]');
+  if (carousel) {
+    const slides = [...carousel.querySelectorAll('[data-slide]')];
+    const dots = [...carousel.querySelectorAll('[data-dot]')];
+    const prev = carousel.querySelector('[data-prev]');
+    const next = carousel.querySelector('[data-next]');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const DURATION = 6000;
+    let index = 0;
+    let timer = null;
+
+    function show(i) {
+      index = (i + slides.length) % slides.length;
+      slides.forEach((s, j) => {
+        s.classList.toggle('is-active', j === index);
+        s.setAttribute('aria-hidden', String(j !== index));
+      });
+      dots.forEach((d, j) => {
+        d.classList.toggle('is-active', j === index);
+        d.setAttribute('aria-selected', String(j === index));
+      });
+    }
+    function start() {
+      if (!reduced && !timer) timer = setInterval(() => show(index + 1), DURATION);
+    }
+    function stop() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+    prev?.addEventListener('click', () => {
+      stop();
+      show(index - 1);
+      start();
+    });
+    next?.addEventListener('click', () => {
+      stop();
+      show(index + 1);
+      start();
+    });
+    dots.forEach((d, j) =>
+      d.addEventListener('click', () => {
+        stop();
+        show(j);
+        start();
+      })
+    );
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('focusin', stop);
+    carousel.addEventListener('focusout', start);
+    show(0);
+    start();
+  }
+</script>
