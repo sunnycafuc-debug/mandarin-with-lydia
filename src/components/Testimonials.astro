@@ -7,6 +7,7 @@ const items = en.testimonials.items.map((item, i) => ({
   ...item,
   zh: zh.testimonials.items[i],
 }));
+const trackItems = [...items, ...items];
 ---
 
 <section class="section section-alt" id="testimonials">
@@ -20,23 +21,187 @@ const items = en.testimonials.items.map((item, i) => ({
     <p class="section-subtitle">
       <L10n en={en.testimonials.subtitle} zh={zh.testimonials.subtitle} />
     </p>
-    <div class="testimonials-grid">
-      {
-        items.map((item) => (
-          <figure class="testimonial-card">
-            <p class="stars" aria-hidden="true">★★★★★</p>
-            <blockquote>
-              <L10n en={item.quote} zh={item.zh.quote} />
-            </blockquote>
-            <figcaption>
-              <strong>
-                <L10n en={item.name} zh={item.zh.name} />
-              </strong>
-              <L10n en={item.role} zh={item.zh.role} />
-            </figcaption>
-          </figure>
-        ))
-      }
+    <div class="t-carousel" data-carousel>
+      <div class="t-viewport" data-viewport>
+        <div class="t-track" data-track>
+          {
+            trackItems.map((item, i) => (
+              <div class="t-slide">
+                <figure class="testimonial-card" aria-hidden={String(i >= items.length)}>
+                  <p class="stars" aria-hidden="true">★★★★★</p>
+                  <blockquote>
+                    <L10n en={item.quote} zh={item.zh.quote} />
+                  </blockquote>
+                  <figcaption>
+                    <strong>
+                      <L10n en={item.name} zh={item.zh.name} />
+                    </strong>
+                    <L10n en={item.role} zh={item.zh.role} />
+                  </figcaption>
+                </figure>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="t-controls">
+        <button class="t-btn" type="button" data-prev aria-label="Previous testimonial">‹</button>
+        <div class="t-dots" role="tablist" aria-label="Testimonials">
+          {
+            items.map((_, i) => (
+              <button class="t-dot" type="button" data-dot={i} aria-label={`Testimonial ${i + 1}`}></button>
+            ))
+          }
+        </div>
+        <button class="t-btn" type="button" data-next aria-label="Next testimonial">›</button>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  const carousel = document.querySelector('[data-carousel]');
+  if (carousel) {
+    const viewport = carousel.querySelector('[data-viewport]');
+    const track = carousel.querySelector('[data-track]');
+    const dots = [...carousel.querySelectorAll('[data-dot]')];
+    const prevBtn = carousel.querySelector('[data-prev]');
+    const nextBtn = carousel.querySelector('[data-next]');
+    const N = dots.length;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const DURATION = 3000;
+    let visible = getVisible();
+    let index = 0;
+    let timer = null;
+    let startX = null;
+
+    function getVisible() {
+      return window.matchMedia('(min-width: 560px)').matches ? 2 : 1;
+    }
+    function unit() {
+      return 100 / visible;
+    }
+    function render() {
+      track.style.transform = `translate3d(${-(index * unit())}%, 0, 0)`;
+    }
+    function jumpTo(q) {
+      track.classList.add('is-no-anim');
+      index = q;
+      render();
+      void track.offsetWidth;
+      track.classList.remove('is-no-anim');
+    }
+    function syncDots() {
+      const active = index % N;
+      dots.forEach((d, j) => {
+        d.classList.toggle('is-active', j === active);
+        d.setAttribute('aria-selected', String(j === active));
+      });
+    }
+    function next() {
+      if (index >= N) jumpTo(0);
+      index = Math.min(index + 1, N);
+      render();
+      syncDots();
+    }
+    function prev() {
+      if (index <= 0) jumpTo(N);
+      index = Math.max(index - 1, 0);
+      render();
+      syncDots();
+    }
+    function go(i) {
+      stop();
+      index = i;
+      render();
+      syncDots();
+      start();
+    }
+    function start() {
+      if (!reduced && !timer) timer = setInterval(() => next(), DURATION);
+    }
+    function stop() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+    prevBtn?.addEventListener('click', () => {
+      stop();
+      prev();
+      start();
+    });
+    nextBtn?.addEventListener('click', () => {
+      stop();
+      next();
+      start();
+    });
+    dots.forEach((d, j) => d.addEventListener('click', () => go(j)));
+
+    viewport.addEventListener(
+      'touchstart',
+      (e) => {
+        startX = e.touches[0].clientX;
+        stop();
+      },
+      { passive: true }
+    );
+    viewport.addEventListener(
+      'touchmove',
+      (e) => {
+        if (startX == null) return;
+        const dx = e.touches[0].clientX - startX;
+        track.classList.add('is-no-anim');
+        track.style.transform = `translate3d(${-(index * unit() + (dx / viewport.clientWidth) * unit())}%, 0, 0)`;
+      },
+      { passive: true }
+    );
+    viewport.addEventListener(
+      'touchend',
+      (e) => {
+        if (startX == null) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        track.classList.remove('is-no-anim');
+        if (Math.abs(dx) > 40) {
+          if (dx < 0) next();
+          else prev();
+        } else {
+          render();
+        }
+        startX = null;
+        start();
+      },
+      { passive: true }
+    );
+
+    viewport.addEventListener(
+      'wheel',
+      (e) => {
+        if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 20) return;
+        e.preventDefault();
+        stop();
+        if (e.deltaX > 0) next();
+        else prev();
+        start();
+      },
+      { passive: false }
+    );
+
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('focusin', stop);
+    carousel.addEventListener('focusout', start);
+
+    window.addEventListener('resize', () => {
+      const v = getVisible();
+      if (v !== visible) {
+        visible = v;
+        render();
+      }
+    });
+
+    render();
+    syncDots();
+    start();
+  }
+</script>
