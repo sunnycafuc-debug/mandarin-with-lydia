@@ -27,7 +27,7 @@ export const en = {
       'Flexible scheduling across time zones',
       'All ages, all levels, all online',
     ],
-    photoCaption: 'Portrait placeholder — replace with a real photo.',
+    photoCaption: 'Lydia · Your Mandarin Teacher',
   },
   courses: {
     eyebrow: 'Courses',

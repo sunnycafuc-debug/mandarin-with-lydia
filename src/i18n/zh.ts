@@ -29,7 +29,7 @@ export const zh: Dict = {
       '跨时区灵活约课',
       '全年龄、全水平、全线上',
     ],
-    photoCaption: '肖像占位图——请替换为真实照片。',
+    photoCaption: 'Lydia · 你的中文老师',
   },
   courses: {
     eyebrow: '课程',
