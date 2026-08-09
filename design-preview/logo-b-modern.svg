@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#BE5331"/>
+  <circle cx="46.5" cy="17.5" r="3.2" fill="#FDFAF5"/>
+  <text x="32" y="34.5" font-family="'PingFang SC','Noto Sans SC','Heiti SC',sans-serif" font-size="38" font-weight="700" fill="#FDFAF5" text-anchor="middle" dominant-baseline="central">汉</text>
+</svg>

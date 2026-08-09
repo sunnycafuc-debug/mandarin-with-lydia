@@ -21,7 +21,9 @@ const year = new Date().getFullYear();
     <div class="footer-top">
       <div class="footer-brand">
         <a class="brand" href={asset("/")}>
-          <span class="brand-mark" aria-hidden="true">汉</span>
+          <span class="brand-mark" aria-hidden="true">
+            <img src={asset('/images/logo.svg')} alt="" width="34" height="34" loading="lazy" />
+          </span>
           <span class="brand-name">{site.brand}</span>
         </a>
         <p>

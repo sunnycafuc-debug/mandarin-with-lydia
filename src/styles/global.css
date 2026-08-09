@@ -98,15 +98,16 @@ html[data-lang='zh'] .l10n-zh {
 }
 
 .brand-mark {
-  display: grid;
-  place-items: center;
+  display: block;
   width: 34px;
   height: 34px;
-  border-radius: 10px;
-  background: var(--color-accent);
-  color: #fff;
-  font-size: 18px;
-  line-height: 1;
+  flex: none;
+}
+
+.brand-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .brand-name {
