@@ -31,14 +31,14 @@ export const en = {
   },
   courses: {
     eyebrow: 'Courses',
-    title: 'Three ways to learn',
+    title: 'Four ways to learn',
     subtitle: 'Whatever your goal, there is a track for you.',
     cta: 'Start with this track',
     cards: [
       {
-        tag: 'Ages 6–17',
+        tag: 'Ages 5–17',
         title: 'Kids & Teenagers',
-        desc: 'Fun, playful lessons for heritage kids and young beginners — listening, speaking, character recognition and a real love for Chinese.',
+        desc: 'Fun, playful lessons for heritage kids and young beginners aged 5+ — listening, speaking, character recognition and a real love for Chinese.',
         points: [
           'TPR-based, game-filled lessons',
           'Heritage & beginner tracks',
@@ -56,13 +56,23 @@ export const en = {
         ],
       },
       {
-        tag: 'Exam + workplace',
-        title: 'HSK & Business Mandarin',
-        desc: 'Structured prep for HSK 1–6 and professional Chinese for meetings, negotiations and email.',
+        tag: 'Exam prep',
+        title: 'HSK Preparation',
+        desc: 'Full systematic support for HSK 1–6 — vocabulary and grammar, listening and reading practice, exam strategies to reach your target score.',
         points: [
-          'HSK 1–6 exam strategies',
-          'Business & workplace scenarios',
-          'Progress you can measure',
+          'Focused HSK 1–6 training',
+          'Real past-paper listening & reading practice',
+          'Targeted work on your weak points',
+        ],
+      },
+      {
+        tag: 'Workplace ready',
+        title: 'Business Mandarin',
+        desc: 'For working professionals: meetings, negotiations and business email in formal Chinese that fits real workplace settings (some foundation needed).',
+        points: [
+          'Negotiation & workplace dialogue practice',
+          'Formal Chinese for meetings & email',
+          'Customized cases for your industry',
         ],
       },
     ],
