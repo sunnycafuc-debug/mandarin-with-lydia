@@ -3,6 +3,6 @@ import { site } from './src/config.ts';
 
 export default defineConfig({
   site: site.url,
-  base: '/mandarin-with-lydia/',
+  base: process.env.VERCEL ? '/' : '/mandarin-with-lydia/',
   output: 'static',
 });
