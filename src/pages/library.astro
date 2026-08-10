@@ -35,7 +35,13 @@ const planned = en.library.planned.map((item, i) => ({
             en.library.selfTest.items.map((item, i) => (
               <article class="self-test-card">
                 <h3>
-                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-test-link
+                    data-test-title={item.title}
+                  >
                     <L10n en={item.title} zh={zh.library.selfTest.items[i].title} />
                   </a>
                 </h3>
@@ -80,3 +86,15 @@ const planned = en.library.planned.map((item, i) => ({
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  import posthog from 'posthog-js';
+  document.querySelectorAll('a[data-test-link]').forEach((el) => {
+    el.addEventListener('click', () => {
+      posthog.capture('test_link_clicked', {
+        test: el.getAttribute('data-test-title') || '',
+        url: el.getAttribute('href') || '',
+      });
+    });
+  });
+</script>

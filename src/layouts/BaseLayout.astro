@@ -50,6 +50,17 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
         rel="stylesheet"
       />
     </noscript>
+    <script>
+      import posthog from 'posthog-js';
+      posthog.init('phc_BCWUKxtAPPAKKxrnaeXEcNZ4VhV75FCuN9AcNdBLoTCr', {
+        api_host: 'https://us.i.posthog.com',
+        autocapture: false,
+        capture_pageview: true,
+        capture_pageleave: true,
+        disable_session_recording: true,
+        persistence: 'localStorage+cookie',
+      });
+    </script>
     <script is:inline>
       (function () {
         function getLang() {
