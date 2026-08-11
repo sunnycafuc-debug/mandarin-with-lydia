@@ -20,7 +20,7 @@ export const en = {
     eyebrow: 'About me',
     title: "Hi, I'm Lydia",
     p1: "I'm a Chinese language teacher who loves helping learners fall in love with Mandarin — one confident conversation at a time. Over the years I've taught heritage kids, curious adults, and HSK-focused students from all over the world.",
-    p2: 'My lessons are warm, structured and practical. You leave every class with something you can actually use: a new phrase, a clearer accent, a real conversation.',
+    p2: 'My lessons are warm, structured and practical. You leave every class with something you can actually use: a new phrase, a clearer accent, a real conversation. I use AI tools for efficient practice and review outside class — but the part that matters most, human connection, stays human.',
     points: [
       'Tailored lesson plans for your goals',
       'Patient, encouraging teaching style',
@@ -40,9 +40,9 @@ export const en = {
         title: 'Kids & Teenagers',
         desc: 'Fun Chinese classes for overseas heritage kids and teen beginners. 18+? Please choose the adult track — these lessons are best suited for ages 6 and up.',
         points: [
+          'Turn "I have to learn Chinese" into "I want to"',
+          'Culture stories & interest-led content (rap, animation, family stories)',
           'TPR-based, game-filled lessons',
-          'Heritage & zero-beginner tracks',
-          'Characters, stories & songs',
         ],
       },
       {
@@ -58,9 +58,9 @@ export const en = {
       {
         tag: 'Exam prep',
         title: 'HSK Preparation',
-        desc: 'Full HSK 1–6 exam coaching: listening and reading practice to reach your target score.',
+        desc: 'Full HSK 3.0 prep (levels 1–9, three tiers): listening and reading drills to reach your target score.',
         points: [
-          'Focused HSK 1–6 training',
+          'Focused HSK 3.0 (levels 1–9) training',
           'Past-paper listening & reading drills',
           'Targeted work on weak areas',
         ],
@@ -83,7 +83,7 @@ export const en = {
     subtitle: 'Find the plan that fits your goals — every lesson is 60 minutes, 1-on-1 online.',
     popular: 'Most popular',
     cta: 'Get started',
-    note: 'Prices in USD. All lessons are 60 minutes, taught 1-on-1 online.',
+    note: 'Prices in USD. All lessons are 60 minutes, taught 1-on-1 online. A real teacher reads your emotions, interests and pace — the part AI can\'t replace, and the reason you choose a human tutor.',
     tiers: [
       {
         name: 'Single / Trial Lesson',
@@ -198,7 +198,7 @@ export const en = {
         desc: 'Handwriting practice and grammar drills for every level.',
       },
       {
-        title: 'HSK Prep Guides',
+        title: 'HSK 3.0 Prep Guides',
         desc: 'Vocabulary lists, exam strategies and mock-test tips.',
       },
       {
@@ -210,7 +210,7 @@ export const en = {
   meta: {
     title: 'Lydia Mandarin | Online Chinese Lessons for Kids, Adults & HSK',
     description:
-      'Personalized online Mandarin lessons with Lydia — kids & teens, adult conversation, HSK 1–6 prep and business Chinese. Book a free consultation.',
+      'Personalized online Mandarin lessons with Lydia — kids & teens, adult conversation, HSK 3.0 prep (levels 1–9) and business Chinese. Book a free consultation.',
   },
 } as const;
 
