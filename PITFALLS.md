@@ -40,6 +40,7 @@
 - git push 直连可用，不要开代理。
 
 ## 6. 开发环境（Codex）
+- **第三方 skill/脚本安装前必须逐行审查代码**（2026-08-12，Lydia 要求，例：claude-vision-skill）：安装前先通读全部代码，核对网络请求去向（只应发往配置的 API）、子进程/系统命令调用、剪贴板与文件读取、是否存在后门/遥测/诱导指令；涉及上传图片、读剪贴板、存放 API Key 的风险要明确告知 Lydia 后再装；日后升级前先看 diff 再更新。
 - Codex 沙盒默认只读：写文件 / 构建 / push / 网络都要请求升级权限。
 - 构建命令：
   `/Users/lydia/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node node_modules/astro/astro.js build`
